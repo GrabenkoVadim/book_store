@@ -1,0 +1,41 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-book-table
+      author: mateacademy
+      changes:
+        - createTable:
+            tableName: books
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: title
+                  type: varchar(255)
+                  constraints:
+                    unique: true
+                    nullable: false
+              - column:
+                  name: author
+                  type: varchar(255)
+              - column:
+                  name: isbn
+                  type: varchar(255)
+                  constraints:
+                    unique: true
+              - column:
+                  name: price
+                  type: decimal(19,2)
+              - column:
+                  name: cover_image
+                  type: varchar(255)
+              - column:
+                  name: deleted
+                  type: boolean
+                  defaultValueBoolean: false
+                  constraints:
+                    nullable: false
